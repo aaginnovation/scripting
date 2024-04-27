@@ -6,17 +6,17 @@ echo "Enter your GitHub Personal Access Token:"
 read token
 #echo $token >token.txt
 #cat token.txt
-cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_ed25519.pub
 #if condition to validate weather ssh keys are already present or not
 if [ $? -eq 0 ]
 then
 	echo "SSH Keys are already present..."
 else	
 echo "SSH Keys are are not present..., Create the sshkyes using ssh-keygen command"
-ssh-keygen -t rsa
+ssh-keygen
 echo "Key successfully generated"
 fi
-sshkey=`cat ~/.ssh/id_rsa.pub`
+sshkey=`cat ~/.ssh/id_ed25519.pub`
 if [ $? -eq 0 ]
 then
 echo "Copying the key to GitHub account"
